@@ -176,48 +176,29 @@ function initMap() {
           function getStreetView(data, status) {
 
             if (status == google.maps.StreetViewStatus.OK) {
-              var nearStreetViewLocation = data.location.latLng;
-              var heading = google.maps.geometry.spherical.computeHeading(
+                var nearStreetViewLocation = data.location.latLng;
+                var heading = google.maps.geometry.spherical.computeHeading(
                 nearStreetViewLocation, marker.position);
-                infowindow.setContent('<div>' + marker.title + '</div><br><div id="pano"></div><p id="weatherDiv"></p>');
-                var panoramaOptions = {
-                  position: nearStreetViewLocation,
-                  pov: {
-                    heading: heading,
-                    pitch: 30
-                  }
-                };
-              var panorama = new google.maps.StreetViewPanorama(
-                document.getElementById('pano'), panoramaOptions);
+                var markerLat = marker.position.lat();
+                var markerLng = marker.position.lng();
+
+                infowindow.setContent('<div>' + marker.title + '</div><br><div id="pano"></div>' + 
+                    '<div>From: <a href="https://developer.mapquest.com/">MapQuest</a></div>' + 
+                    '<img srcset="https://www.mapquestapi.com/staticmap/v5/map?key=eYCUpFNieaLmErWTstVqZMrZcCemCh0x&center='+markerLat+','+markerLng+'&zoom=18&type=hyb&size=300,300">'
+                        );
+
+                    var panoramaOptions = {
+                      position: nearStreetViewLocation,
+                      pov: {
+                        heading: heading,
+                        pitch: 30
+                      }
+                    };
+                    var panorama = new google.maps.StreetViewPanorama(document.getElementById('pano'), panoramaOptions);
             } else {
               infowindow.setContent('<div>' + marker.title + '</div>' +
-                '<div id="pano">No Street View Found</div><p id="weatherDiv"></p>');
+                '<div id="pano">No Street View Found</div>');
             }
-            // https://openweathermap.org/api
-            var weather = "http://api.openweathermap.org/data/2.5/weather?lat="+marker.position.lat()+"&lon="+marker.position.lng()+"&appid=06170c100199dbae1e223cc3dfad960b&units=imperial";
-            $.ajax({
-            url: weather,
-            dataType: 'json',
-            type: 'GET'
-            }).done(function(stuff) {
-                console.log("the stuff is ",stuff);
-                var sunriseStamp = stuff.sys.sunrise;
-                var sunriseTime = new Date(sunriseStamp * 1000);
-                var sunsetStamp = stuff.sys.sunset;
-                var sunsetTime = new Date(sunsetStamp * 1000);
-                $('#weatherDiv').append(
-                    'Data provided by <a href="https://openweathermap.org/api">Openweathermap</a><br>' +
-                    'Temperature is ' + stuff.main.temp.toFixed(0) + 
-                    ' with ' + stuff.weather[0].description + '.<br>' +
-                    'Sunrise at: <br>' +
-                    sunriseTime + '<br>' +
-                    'Sunset at: <br>' +
-                    sunsetTime
-                );
-            }).fail(function(err) {
-                alert('Weather app failed with this error ', err);
-                throw err;
-            });
           }
           // Use streetview service to get the closest streetview image within
           // 50 meters of the markers position

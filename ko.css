@@ -38,6 +38,12 @@ ol {
     /*margin-top: 10px;*/
 }
 
+
+#thisMap{
+    height: 200px;
+    width: 200px;
+        }
+
 /* The Modal background */
 .modal {
     display: none;  /* Hidden by default */

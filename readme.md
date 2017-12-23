@@ -1,4 +1,4 @@
-## Google Maps API Mashup With KnockoutJS
+## Google Maps API Mashup With KnockoutJS and a Map Quest satalite view of locations
 
 Welcome to the project that has caused me more problems than all the others combined! Any one of the requirements in the rubric would have been easily accomplished on it's own but getting all of them to work together at once has be been a major headache. 
 
