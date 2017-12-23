@@ -44,20 +44,20 @@
     <select data-bind="options: optionValues, optionsText: 'seeit', optionsValue: 'thisVal', selectedOptions: addMarkerType, click: someHelp()"></select></p>
 </section>
 
-<section id="roto" class="carouselbox active">
+<aside id="roto" class="carouselbox active">
     <ol id="theList" class="content" data-bind="foreach: items ">
 
         <li data-bind="attr: {id: 'top'+tagId}, if: $root.addMarkerType() == 'all' || $root.addMarkerType() == placeType">
 
-            <button class="listItem" data-bind="text: placeId, attr: {id: tagId}, value: placeType, click: $parent.clickVal()" onclick="modalFunc(this.id);"></button>
+            <button class="listItem" data-bind="text: placeId, attr: {id: tagId}, value: placeType, click: $parent.clickVal()" onclick="modalFunc(this.id)"></button>
 
         </li>
 
     </ol>
 
-</section>
+</aside>
 
-<section id="map"></section>
+<main id="map"></main>
 
 <script src="ko.js"></script>
 <script async defer onerror="alert('There was an error loading this page.')" src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDyLw3cQPBIXwwExxqVNBsc9D-4KeVPp8g&callback=initMap&libraries=places'></script>

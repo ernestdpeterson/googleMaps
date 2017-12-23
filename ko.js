@@ -184,7 +184,7 @@ function initMap() {
 
                 infowindow.setContent('<div>' + marker.title + '</div><br><div id="pano"></div>' + 
                     '<div>From: <a href="https://developer.mapquest.com/">MapQuest</a></div>' + 
-                    '<img srcset="https://www.mapquestapi.com/staticmap/v5/map?key=eYCUpFNieaLmErWTstVqZMrZcCemCh0x&center='+markerLat+','+markerLng+'&zoom=18&type=hyb&size=300,300">'
+                    '<img srcset="https://www.mapquestapi.com/staticmap/v5/map?key=eYCUpFNieaLmErWTstVqZMrZcCemCh0x&center='+markerLat+','+markerLng+'&zoom=18&type=hyb&size=300,300" alt="Satalite view from MapQuest failed.">'
                         );
 
                     var panoramaOptions = {
@@ -247,6 +247,7 @@ function initMap() {
                 if (koMarkers[j].id == this.markerPlace.place_id) {
                     koMarkers[j].setAnimation(bouncyIcon);
                     populateInfoWindow(koMarkers[j], infowindow);
+                    map.setCenter(koMarkers[j].getPosition());
                 }
             }
         }, this);
@@ -278,6 +279,7 @@ function initMap() {
             }
             populateInfoWindow(marker, infowindow);
             marker.setAnimation(bouncyIcon);
+            map.setCenter(marker.getPosition());
         });
 
         koMarkers.push(marker);
