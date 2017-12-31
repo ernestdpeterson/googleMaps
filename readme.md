@@ -12,7 +12,3 @@ Open ko.html in your browser.
 Use click buttons in top left of the screen to refine the list of locations. (**note!** not all location types are represented in the list.)
 Click on the button of the location you are interested in to see reviews from Google Reviews. 
 Click on the marker icon to see a street view of the location.
-
-### Known Issue
-
-Occasionally "Pensacola Health Care" will be represented with an undefined marker if it appears at all. Reloading the browser will usually cause this icon/location to disappear. 

@@ -44,7 +44,7 @@
     <select data-bind="options: optionValues, optionsText: 'seeit', optionsValue: 'thisVal', selectedOptions: addMarkerType, click: someHelp()"></select></p>
 </section>
 
-<aside id="roto" class="carouselbox active">
+<aside id="roto" class="buttonBox">
     <ol id="theList" class="content" data-bind="foreach: items ">
 
         <li data-bind="attr: {id: 'top'+tagId}, if: $root.addMarkerType() == 'all' || $root.addMarkerType() == placeType">

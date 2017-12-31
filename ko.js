@@ -218,7 +218,7 @@ function initMap() {
                 });
             } else {
               infowindow.setContent('<div>' + marker.title + '</div>' +
-                '<div id="pano">No Street View Found</div>');
+                '<div id="pano"><br><br>No Street View Found</div>');
             }
           }
           // Use streetview service to get the closest streetview image within

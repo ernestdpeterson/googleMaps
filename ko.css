@@ -33,11 +33,17 @@ ol {
     margin-top: 20px;
 }
 
-.listItem {
-    background: lightcyan;
-    /*margin-top: 10px;*/
+.content {
+    padding-left: 8px;
 }
 
+.listItem {
+    background: lightcyan;
+}
+
+.buttonBox {
+    max-width: 120px;
+}
 
 #thisMap{
     height: 200px;
